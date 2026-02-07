@@ -1,0 +1,41 @@
+.cardContainer {
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.badge {
+  animation: fadeInScale 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.title {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease;
+}
+
+.link {
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+

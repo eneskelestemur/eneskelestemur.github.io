@@ -38,7 +38,7 @@ const ParticleBackground = () => {
         grab: {
           distance: 140,
           links: {
-            opacity: 0.5,
+            opacity: 0.1,
           },
         },
       },
@@ -55,11 +55,15 @@ const ParticleBackground = () => {
         ],
       },
       links: {
-        color: isDark ? "#ffffff" : "#000000", // Black in light mode for visibility
+        color: isDark ? "#ffffff" : "#000000", 
         distance: 150,
         enable: true,
-        opacity: 0.5,
-        width: 1.5,
+        opacity: 0.25, // Lowered link opacity
+        width: 1.0,
+      },
+      collisions: {
+        enable: true,
+        mode: "bounce"
       },
       move: {
         direction: "none",
@@ -68,7 +72,7 @@ const ParticleBackground = () => {
           default: "bounce",
         },
         random: false,
-        speed: 1,
+        speed: 0.5,
         straight: false,
       },
       number: {
@@ -79,7 +83,7 @@ const ParticleBackground = () => {
         value: 60,
       },
       opacity: {
-        value: 0.8,
+        value: 0.15, // Lowered particle opacity
       },
       shape: {
         type: "circle",
@@ -103,7 +107,7 @@ const ParticleBackground = () => {
             top: 0,
             left: 0,
             width: '100%',
-            height: '100%'
+            height: '100%',
         }}
       />
     );
