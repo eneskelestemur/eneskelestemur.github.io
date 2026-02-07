@@ -1,0 +1,16 @@
+{
+  "publications": [
+    {
+      "id": "pub-1",
+      "title": "HEALER: Hit Expansion to Advanced Leads Using Enumerated Reactions",
+      "authors": ["Enes Kelestemur", "Eugene Muratov", "Alexander Tropsha"],
+      "journal": "Nature Chemical Biology",
+      "year": 2026,
+      "doi": "10.1038/s41589-024-01234",
+      "link": "https://doi.org/10.1038/s41589-024-01234",
+      "abstract": "We present HEALER, a computational framework for hit expansion in early-stage drug discovery. Our method uses enumerated chemical reactions to systematically explore the synthesizable chemical space around active compounds, accelerating the lead generation process.",
+      "tags": ["chemistry", "drug-discovery", "hit-to-lead"],
+      "type": "journal"
+    }
+  ]
+}
