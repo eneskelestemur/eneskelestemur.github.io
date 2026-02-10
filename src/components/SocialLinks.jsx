@@ -10,7 +10,7 @@ export function SocialLinks() {
     {
       icon: IconBrandLinkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/enesk',
+      href: 'https://linkedin.com/in/eneskelestemur',
       color: '#0a66c2'
     },
     {
@@ -22,13 +22,13 @@ export function SocialLinks() {
     {
       icon: IconMail,
       label: 'Email',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:enesk@email.unc.edu',
       color: '#d54b4b'
     },
     {
       icon: IconBook,
       label: 'Google Scholar',
-      href: 'https://scholar.google.com/citations?user=your-id',
+      href: 'https://scholar.google.com/citations?user=sqHSmbkAAAAJ&hl=en',
       color: '#4285f4'
     }
   ];

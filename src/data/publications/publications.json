@@ -2,15 +2,76 @@
   "publications": [
     {
       "id": "pub-1",
+      "title": "Heli-SMACC: Helicase-targeting SMAll Molecule Compound Collection",
+      "authors": ["Holli-Joi Martin", "Mohammad A. Hossain", "James Wellnitz", "Enes Kelestemur", "Joshua E. Hochuli", "Sumera Parveen", "Cheryl Arrowsmith", "Timothy M. Willson", "Eugene Muratov", "Alexander Tropsha"],
+      "journal": null,
+      "year": 2024,
+      "doi": "https://doi.org/10.1101/2024.07.04.602122",
+      "link": "https://www.biorxiv.org/content/10.1101/2024.07.04.602122v1",
+      "abstract": "Helicases have emerged as promising targets for the development of antiviral drugs; however, the family remains largely undrugged. To support the focused development of viral helicase inhibitors we identified, collected, and integrated all chemogenomics data for all available helicases from the ChEMBL database. After thoroughly curating and enriching the data with relevant annotations we have created a derivative database of helicase inhibitors which we dubbed Heli-SMACC (Helicase-targeting SMAll Molecule Compound Collection). The current version of Heli-SMACC contains 20,432 bioactivity entries for viral, human, and bacterial helicases. We have selected 30 compounds with promising viral helicase activity and tested them in a SARS-CoV-2 NSP13 ATPase assay. Twelve compounds demonstrated ATPase inhibition and a consistent dose-response curve. The Heli-SMACC database may serve as a reference for virologists and medicinal chemists working on the development of novel helicase inhibitors. Heli-SMACC is publicly available at https://smacc.mml.unc.edu.",
+      "tags": ["Helicases", "Viral Helicase Inhibitors", "Antiviral Drug Discovery", "Database", "Drug Repurposing"],
+      "type": "preprint"
+    },
+    {
+      "id": "pub-2",
+      "title": "Conserved Filovirus Proteins as Targets of Broad-Spectrum Antivirals",
+      "authors": ["Marcus Tullius Scotti", "Enes Kelestemur", "Holli-Joi Martin", "Brandon Novy", "Cleber C Melo-Filho", "Renata Priscila Barros de Menezes", "Chonny Herrera-Acevedo", "Alexander Tropsha", "Eugene N Muratov"],
+      "journal": null,
+      "year": 2025,
+      "doi": "https://doi.org/10.1101/2025.09.26.678902",
+      "link": "https://www.biorxiv.org/content/10.1101/2025.09.26.678902v1",
+      "abstract": "Filoviruses are enveloped, non-segmented, negative-strand RNA viruses belonging to the Filoviridae family, which includes five genera: Ebolavirus, Marburgvirus, Cuevavirus, Striavirus, and Thamnovirus. Members of this family cause severe and, often, fatal hemorrhagic fevers in humans and non-human primates, with high mortality rates. To date, only two filoviruses, Ebola virus (EBOV) and Marburg virus (MARV), are known to infect humans and are listed as priority pathogens by the World Health Organization due to their potential for re-emergence and the current lack of effective vaccines and antiviral treatments. In this study, we identify and characterize conserved binding sites within key filoviral proteins to support the development of broad-spectrum, direct-acting antiviral agents. We validated the significance of these conserved regions for drug discovery using existing experimental data. Our analysis revealed notably high sequence similarity among proteins from filoviruses capable of infecting humans (EBOV, TAFV, BDBV, SUDV, MARV, and RAVV) compared to those from non-zoonotic species, with the highest conservation observed in the L and VP40 proteins—both critical for viral genome transcription and replication. Furthermore, we compiled and analyzed available experimental data on known antiviral compounds targeting these proteins, identifying several agents with cross-filovirus activity, including Galidesivir, Remdesivir, and Favipiravir. The integrated approach described here—combining sequence and structural conservation analysis with chemical structure and antiviral activity data—demonstrates a strategy that could be extended to the development of broad-spectrum therapeutics across multiple viral families.",
+      "tags": ["Filoviridae", "Ebola", "Marburg", "Broad Spectrum Antiviral", "Protein Homology"],
+      "type": "preprint"
+    },
+    {
+      "id": "pub-3",
+      "title": "Challenges of broad-spectrum antiviral drug discovery and development for emerging pathogens",
+      "authors": ["Holli-Joi Martin", "Jon-Michael Beasley", "Enes Kelestemur", "Zoe Sessions", "Stephan Ludwig", "Nathaniel J. Moorman", "Ralph Baric", "Eugene N. Muratov", "Alexander Tropsha"],
+      "journal": "Drug Discovery Today",
+      "year": 2025,
+      "doi": "https://doi.org/10.1016/j.drudis.2025.104486",
+      "link": "https://www.sciencedirect.com/science/article/abs/pii/S1359644625001990",
+      "abstract": "Broad-spectrum antiviral agent (BSAA) drugs are essential in the fight against viral, especially emerging, diseases. However, their development faces several challenges including insufficiently focused funding, fragmented research efforts and limited systematic data on BSAAs. In this review, we highlight these challenges, summarize accessible collections of data on antiviral compounds and viral targets, and explore possible directions toward the development of BSAAs. Whereas most existing BSAAs have been discovered serendipitously, we posit that rational, and feasible, design of direct-acting BSAAs should be focused on homologous targets found in viruses within a single viral family.",
+      "tags": ["Broad-Spectrum Antiviral Agents", "Emerging Viruses", "Drug Discovery", "Viral Targets", "Medicinal Chemistry"],
+      "type": "journal"
+    },
+    {
+      "id": "pub-4",
+      "title": "Machine Learning Models and a Web Portal for Predicting Cytochrome P450 Activity",
+      "authors": [ "Enes Kelestemur", "Holli-Joi Martin", "Pranav Shah", "James Wellnitz", "Xin Xu", "Alexey Zakharov", "Alexander Tropsha", "Eugene Muratov"],
+      "journal": null,
+      "year": 2025,
+      "doi": "https://doi.org/10.26434/chemrxiv-2025-5zkgc",
+      "link": "https://chemrxiv.org/doi/full/10.26434/chemrxiv-2025-5zkgc",
+      "abstract": "Cytochrome P450 (CYP) family of enzymes plays an integral role in drug metabolism and excretion. This application note describes the development of a novel computational CYP profiler (CYP-Pro) as a drug development tool. To enable new model development, we integrated and curated the largest, to the best of our knowledge, dataset comprising 26587 entries, including both inhibitors and substrates of CYP2D6, CYP3A4, and CYP2C9. We have built and externally validated Quantitative Structure-Activity Relationship (QSAR) models that can accurately predict whether molecules of interest are expected to be inhibitors or substrates. The models were assessed mainly by Positive Predictive Value (PPV), which ranged between 0.14 and 0.92. CYP-Pro showed the highest accuracy in predicting compounds selectively metabolized by CYP3A4 alone or by CYP2D6 and CYP2C9 without CYP3A4 involvement. All models are incorporated into the previously developed PhaKinPro portal (https://phakinpro.mml.unc.edu). CYP-Pro is unique in that it provides separate models for predicting CYP inhibitors vs. substrates, prioritizes high positive predictive value (PPV) as a pragmatic metric of accuracy to support the experimental testing of a small number of predicted substrates and inhibitors, enhances interpretability with fragment maps, and ensures reliability through strict applicability domain control. We expect that this new tool will aid researchers in early identification of compounds with favorable metabolic profiles, reducing the risks of drug-drug interactions and improving the efficiency of drug development efforts.",
+      "tags": ["Cytochrome P450", "Drug Metabolism", "QSAR Modeling", "Machine Learning", "Web Portal"],
+      "type": "preprint"
+    },
+    {
+      "id": "pub-5",
+      "title": "Chemical arsenal for helicase Hunters: Striking the toughest targets in antiviral research",
+      "authors": ["Holli-Joi Martin", "Mohammad Anwar Hossain", "James Wellnitz", "Enes Kelestemur", "Joshua E Hochuli", "Sumera Perveen", "Cheryl Arrowsmith", "Timothy M Willson", "Eugene N Muratov", "Alexander Tropsha"],
+      "journal": "Antiviral Research",
+      "year": 2025,
+      "doi": "https://doi.org/10.1016/j.antiviral.2025.106184",
+      "link": "https://www.sciencedirect.com/science/article/abs/pii/S016635422500110X",
+      "abstract": "Helicases have emerged as promising targets in antiviral drug development but remain largely undrugged. To support the focused development of viral helicase inhibitors we identified, collected, and integrated all chemogenomics data for all helicases annotated in the ChEMBL database. After thoroughly curating and enriching the data with accurate annotations we have created a derivative database of helicase inhibitors which we dubbed Heli-SMACC (Helicase-targeting SMAll Molecule Compound Collection). Heli-SMACC contains 13,597 molecules, 29 proteins, and 20,431 bioactivity entries for viral, human, and bacterial helicases. We selected 30 compounds with promising viral helicase activity and tested them in a SARS-CoV-2 NSP13 ATPase assay. Twelve compounds demonstrated ATPase inhibition and a consistent dose-response curve. While Heli-SMACC provides a rich resource for identifying candidate inhibitors, cross-species compound transferability remains a significant challenge. In particular, inhibitory activity observed against viral helicases often does not translate well to human or bacterial homologs and vice versa due to differences in binding site composition, helicase structure, and cofactor dependencies. Despite these limitations, Heli-SMACC offers a valuable starting point for structure-based optimization and target-specific inhibitor design. The Heli-SMACC database may serve as a reference for virologists and medicinal chemists working on the development of novel helicase inhibitors. Heli-SMACC is publicly available at https://smacc.mml.unc.edu.",
+      "tags": ["Helicases", "Viral Helicase Inhibitors", "Antiviral Drug Discovery", "Database", "Drug Repurposing"],
+      "type": "journal"
+    },
+    {
+      "id": "pub-6",
       "title": "HEALER: Hit Expansion to Advanced Leads Using Enumerated Reactions",
       "authors": ["Enes Kelestemur", "Eugene Muratov", "Alexander Tropsha"],
-      "journal": "Nature Chemical Biology",
+      "journal": null,
+      "conference": "ACS Spring 2026",
       "year": 2026,
-      "doi": "10.1038/s41589-024-01234",
-      "link": "https://doi.org/10.1038/s41589-024-01234",
-      "abstract": "We present HEALER, a computational framework for hit expansion in early-stage drug discovery. Our method uses enumerated chemical reactions to systematically explore the synthesizable chemical space around active compounds, accelerating the lead generation process.",
-      "tags": ["chemistry", "drug-discovery", "hit-to-lead"],
-      "type": "journal"
+      "doi": null,
+      "link": null,
+      "abstract": "Rapid generation of synthetically feasible analogs of hit compounds is central to hit-to-lead campaigns in medicinal chemistry. Here we present HEALER, an open-source reaction-based enumerator that constructs analogs by (i) retrosynthetic fragmentation of a query hit molecule; (ii) fragment-to-building-block matching using a weighted Tversky similarity metric; and (iii) forward recombination via curated SMARTS reaction templates. HEALER outputs analog proposals along with synthetic routes (including reactants and reaction identifiers) and computed “drug likeness” properties typically assessed in medicinal chemistry projects for compound triage. Across diverse benchmark sets (Enamine diverse compounds, ChEMBL lead-like bioactives, and a set of “unsynthesizable” molecules), HEALER showed high analog generation success rates and maintained robust performance on out-of-distribution chemotypes, while imposing minimal synthetic burden. Analogs generated with HEALER typically preserved or improved drug-likeness of the hits, often matching or exceeding the performance of synthesis-aware machine learning generators. As a CPU-friendly web application with Python API, HEALER offers a practical bridge from in silico design to make-ready hit optimization chemistry.",
+      "tags": ["Drug Discovery", "Reaction-based design", "Analog generation", "Synthetic accessibility", "Open-source web tool"],
+      "type": ["preprint", "conference"]
     }
   ]
 }

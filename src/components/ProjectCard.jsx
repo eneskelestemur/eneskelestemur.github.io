@@ -45,7 +45,9 @@ export function ProjectCard({ project }) {
         transform: isHovered ? 'translateY(-6px) scale(1.02)' : 'translateY(0) scale(1)',
         display: 'flex',
         flexDirection: 'column',
-        height: '100%'
+        height: '100%',
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
       {/* Header: Status Badge and Year */}
@@ -184,6 +186,36 @@ export function ProjectCard({ project }) {
           </Anchor>
         )}
       </Group>
+
+      {/* Project Image - Bottom Right Corner */}
+      {project.image && (
+        <Box
+          style={{
+            position: 'absolute',
+            bottom: '12px',
+            right: '12px',
+            width: '100px',
+            height: '100px',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            opacity: isHovered ? 0.9 : 0.7,
+            transition: 'all 0.4s cubic-bezier(0.23, 1, 0.320, 1)',
+            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            border: `1px solid ${isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)'}`,
+            boxShadow: `0 4px 12px rgba(0,0,0,0.2)`
+          }}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
+            }}
+          />
+        </Box>
+      )}
     </Box>
   );
 }

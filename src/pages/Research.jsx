@@ -10,8 +10,8 @@ export function Research() {
   useThemeGradients();
 
   // Group publications by year, sorted descending (recent first)
-  const groupedByYear = useMemo(() => {
-    if (!data?.publications) return {};
+  const sortedYearsAndPublications = useMemo(() => {
+    if (!data?.publications) return [];
     const grouped = {};
     data.publications.forEach(pub => {
       if (!grouped[pub.year]) {
@@ -19,13 +19,9 @@ export function Research() {
       }
       grouped[pub.year].push(pub);
     });
-    // Sort years in descending order (recent first)
-    return Object.keys(grouped)
-      .sort((a, b) => b - a)
-      .reduce((acc, year) => {
-        acc[year] = grouped[year];
-        return acc;
-      }, {});
+    // Sort years in descending order (recent first as an array)
+    const sortedYears = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
+    return sortedYears.map(year => [year, grouped[year]]);
   }, [data]);
 
   if (error) {
@@ -52,7 +48,7 @@ export function Research() {
         </Center>
       ) : (
         <Stack gap="40px">
-          {Object.entries(groupedByYear).map(([year, publications], yearIdx) => (
+          {sortedYearsAndPublications.map(([year, publications], yearIdx) => (
             <Box
               key={year}
               style={{

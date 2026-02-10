@@ -22,8 +22,20 @@ export function PublicationCard({ publication }) {
     talk: 'Talk'
   };
 
+  // Handle type as string or array
+  const publicationTypes = Array.isArray(publication.type) ? publication.type : [publication.type];
+
+  // Render authors with bold for Enes and Kelestemur
   const renderAuthors = (authors) => {
-    return authors.slice(0, 2).join(', ') + (authors.length > 2 ? ` et al.` : '');
+    return authors.map((author, idx) => {
+      const isBold = author.includes('Enes') || author.includes('Kelestemur');
+      return (
+        <span key={idx}>
+          {isBold ? <strong>{author}</strong> : author}
+          {idx < authors.length - 1 ? ', ' : ''}
+        </span>
+      );
+    });
   };
 
   return (
@@ -49,17 +61,29 @@ export function PublicationCard({ publication }) {
         transform: isHovered ? 'translateY(-6px) scale(1.01)' : 'translateY(0) scale(1)',
       }}
     >
-      {/* Type Badge and Year */}
-      <Group justify="space-between" mb="12px">
-        <Badge 
-          size="sm" 
-          color={typeColors[publication.type]}
-          className={styles.badge}
-        >
-          {typeLabels[publication.type]}
-        </Badge>
+      {/* Type Badge(s) and Year */}
+      <Group justify="space-between" mb="12px" align="center">
+        <Group gap="6px">
+          {publicationTypes.map((type) => (
+            <Badge 
+              key={type}
+              size="sm" 
+              color={typeColors[type]}
+              className={styles.badge}
+            >
+              {typeLabels[type]}
+            </Badge>
+          ))}
+        </Group>
         <Text size="xs" c="dimmed" fw={500}>{publication.year}</Text>
       </Group>
+
+      {/* Publication Venue - Journal/Conference/Event */}
+      {(publication.journal || publication.conference || publication.event) && (
+        <Text size="sm" fw={500} mb="12px">
+          {publication.journal || publication.conference || publication.event}
+        </Text>
+      )}
 
       {/* Title */}
       <Text
@@ -75,41 +99,35 @@ export function PublicationCard({ publication }) {
         {publication.title}
       </Text>
 
-      {/* Authors and Publication Info */}
-      <Stack gap="8px" mb="16px">
-        <Text size="sm" c="dimmed">
-          {renderAuthors(publication.authors)}
-        </Text>
-        {publication.journal && (
-          <Text size="sm" fw={500}>
-            {publication.journal}
-          </Text>
-        )}
-        {publication.conference && (
-          <Text size="sm" fw={500}>
-            {publication.conference}
-          </Text>
-        )}
-        {publication.event && (
-          <Text size="sm" fw={500}>
-            {publication.event}
-          </Text>
-        )}
-      </Stack>
-
-      {/* Abstract - expandable on hover */}
-      <Text
-        size="sm"
-        c="dimmed"
-        mb="16px"
-        lineClamp={isHovered ? undefined : 2}
-        style={{
-          opacity: isHovered ? 1 : 0.75,
-          transition: 'all 0.4s ease'
-        }}
-      >
-        {publication.abstract}
+      {/* Authors */}
+      <Text size="sm" c="dimmed" mb="16px">
+        {renderAuthors(publication.authors)}
       </Text>
+
+      {/* Abstract - expandable on hover with smooth animation */}
+      {publication.abstract && (
+        <Stack gap="4px" mb="16px">
+          <Text size="sm" fw={600}>Abstract</Text>
+          <Box
+            style={{
+              maxHeight: isHovered ? '500px' : '48px',
+              overflow: 'hidden',
+              transition: 'max-height 1.8s cubic-bezier(0.23, 1, 0.320, 1)'
+            }}
+          >
+            <Text
+              size="sm"
+              c="dimmed"
+              style={{
+                opacity: isHovered ? 1 : 0.75,
+                transition: 'opacity 0.4s ease'
+              }}
+            >
+              {publication.abstract}
+            </Text>
+          </Box>
+        </Stack>
+      )}
 
       {/* Links/Actions Footer */}
       <Group gap="12px" wrap="wrap">
