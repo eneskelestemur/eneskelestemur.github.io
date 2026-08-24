@@ -16,10 +16,6 @@ const ParticleBackground = () => {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
-
   const options = useMemo(() => ({
     background: {
       color: {
@@ -99,7 +95,6 @@ const ParticleBackground = () => {
     return (
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded}
         options={options}
         style={{
             position: 'absolute',

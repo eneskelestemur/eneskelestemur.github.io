@@ -1,14 +1,12 @@
 .cardContainer {
-  position: relative;
-  overflow: hidden;
-  animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  padding: 24px;
 }
 
 .badge {
-  animation: fadeInScale 0.4s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .title {
+  line-height: 1.4;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   background-clip: text;
   -webkit-background-clip: text;
@@ -16,12 +14,62 @@
   transition: all 0.4s ease;
 }
 
-.link {
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+/* max-height alone drives this, in BOTH directions.
+
+   line-clamp must not be toggled on hover: it is not animatable, so it snapped
+   the text back to two lines the instant the pointer left and the collapse
+   appeared to happen instantly while max-height kept animating invisibly. The
+   "there is more text" cue is a fade instead, because opacity can animate.
+
+   --abstract-full is measured per card in PublicationCard.jsx. */
+.abstractContainer {
   position: relative;
+  max-height: 42px; /* exactly two lines at 14px/1.5 */
+  overflow: hidden;
+  transition: max-height var(--glide-duration) var(--ease-glide);
+}
+
+.cardContainer:hover .abstractContainer {
+  max-height: var(--abstract-full, 600px);
+  transition-delay: var(--glide-delay);
+}
+
+.abstractContainer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, var(--card-fade));
+  opacity: 1;
+  transition: opacity calc(var(--glide-duration) * 0.5) var(--ease-glide);
+  pointer-events: none;
+}
+
+.cardContainer:hover .abstractContainer::after {
+  opacity: 0;
+}
+
+.abstract {
+  display: block;
+  line-height: 1.5;
+  opacity: 0.75;
+  transition: opacity var(--glide-duration) var(--ease-glide);
+}
+
+.cardContainer:hover .abstract {
+  opacity: 1;
+}
+
+.link {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
+  color: var(--accent-research);
+  text-decoration: none;
+  position: relative;
+  transition: all var(--transition-base);
 }
 
 .link::after {
@@ -32,10 +80,9 @@
   width: 0;
   height: 1px;
   background: currentColor;
-  transition: width 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  transition: width var(--transition-base);
 }
 
 .link:hover::after {
   width: 100%;
 }
-

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages serves this for any unknown path. Remember where the
+      // visitor was actually going, then hand control back to the SPA.
+      sessionStorage.setItem(
+        'spaRedirect',
+        location.pathname + location.search + location.hash
+      );
+      location.replace('/');
+    </script>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+  </body>
+</html>

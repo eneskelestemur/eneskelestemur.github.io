@@ -1,0 +1,34 @@
+.homeButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-home-start) 0%,
+    var(--gradient-home-end) 100%
+  );
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(34, 139, 230, 0.2);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.homeButton:hover {
+  box-shadow: 0 8px 24px rgba(34, 139, 230, 0.35);
+  transform: translateY(-2px);
+}
+
+.title {
+  overflow-wrap: break-word;
+  font-weight: 900;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+}

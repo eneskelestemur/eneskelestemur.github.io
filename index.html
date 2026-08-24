@@ -4,7 +4,51 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <meta name="theme-color" content="#1a1b1e" />
+
+    <title>Enes Kelestemur — Computational Chemistry &amp; Machine Learning</title>
+    <meta
+      name="description"
+      content="Research, publications, and open-source work in computational chemistry, cheminformatics, and machine learning for drug discovery."
+    />
+    <meta name="author" content="Enes Kelestemur" />
+    <link rel="canonical" href="https://eneskelestemur.github.io/" />
+
+    <!-- Open Graph / social link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Enes Kelestemur" />
+    <meta property="og:title" content="Enes Kelestemur — Computational Chemistry &amp; Machine Learning" />
+    <meta
+      property="og:description"
+      content="Research, publications, and open-source work in computational chemistry, cheminformatics, and machine learning for drug discovery."
+    />
+    <meta property="og:url" content="https://eneskelestemur.github.io/" />
+    <meta property="og:image" content="https://eneskelestemur.github.io/og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Enes Kelestemur — Computational Chemistry &amp; Machine Learning" />
+    <meta
+      name="twitter:description"
+      content="Research, publications, and open-source work in computational chemistry, cheminformatics, and machine learning for drug discovery."
+    />
+    <meta name="twitter:image" content="https://eneskelestemur.github.io/og-image.png" />
+
+    <!--
+      GitHub Pages has no SPA fallback, so a deep link like /research is served
+      as a 404. 404.html stores the requested path and redirects here; this
+      script restores it before React Router mounts.
+    -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.getItem('spaRedirect');
+        if (redirect) {
+          sessionStorage.removeItem('spaRedirect');
+          if (redirect !== location.pathname + location.search + location.hash) {
+            history.replaceState(null, '', redirect);
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

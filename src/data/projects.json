@@ -1,0 +1,85 @@
+{
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "This Website",
+      "description": "Personal portfolio website built with React, Vite, and Mantine UI to showcase my projects. Visit the repository to see how I implemented the design and functionality of this website.",
+      "type": "personal",
+      "status": "active",
+      "repo": "https://github.com/eneskelestemur/eneskelestemur.github.io",
+      "demo": null,
+      "technologies": [
+        "React",
+        "Vite",
+        "Mantine UI"
+      ],
+      "year": 2026,
+      "image": "/favicon.svg"
+    },
+    {
+      "id": "project-2",
+      "title": "HEALER: Hit Expansion to Advanced Leads Using Enumerated Reactions",
+      "description": "HEALER generates synthetically accessible molecular analogs by combining retrosynthetic fragmentation with building blocks and reaction templates. It bridges the gap between computational design and laboratory synthesis.",
+      "type": "research",
+      "status": "active",
+      "repo": "https://github.com/eneskelestemur/healer",
+      "demo": null,
+      "technologies": [
+        "Python",
+        "RDKit"
+      ],
+      "year": 2026,
+      "image": "/assets/healer_logo_no_text.png"
+    },
+    {
+      "id": "project-3",
+      "title": "Property Profiler",
+      "description": "A simple molecular property profiler for drug discovery applications. This package provides machine learning models to predict various molecular properties including water solubility, logD, most basic pKa and other essential chemical properties, along with drug-likeliness scores (e.g. CNS-MPO, Stoplight, QED scores).",
+      "type": "research",
+      "status": "completed",
+      "repo": "https://github.com/eneskelestemur/prop_profiler",
+      "demo": null,
+      "technologies": [
+        "Python",
+        "Molecular Properties",
+        "Machine Learning",
+        "CNS-MPO",
+        "STOPLIGHT",
+        "QED"
+      ],
+      "year": 2025
+    },
+    {
+      "id": "project-4",
+      "title": "MD Simulation",
+      "description": "Config-driven MD runner: prepare structures, solvate, run OpenMM, then analyze and visualize with MDAnalysis.",
+      "type": "research",
+      "status": "completed",
+      "repo": "https://github.com/eneskelestemur/MDSimulation",
+      "demo": null,
+      "technologies": [
+        "Python",
+        "OpenMM",
+        "MDAnalysis",
+        "MD Simulation",
+        "Molecular Dynamics"
+      ],
+      "year": 2025
+    },
+    {
+      "id": "project-5",
+      "title": "Molecular Modeling Lab",
+      "description": "A collection of Jupyter notebooks covering various topics in molecular modeling, including molecular docking, molecular dynamics simulations, and cheminformatics.",
+      "type": "research",
+      "status": "completed",
+      "repo": "https://github.com/eneskelestemur/MolecularModeling",
+      "demo": null,
+      "technologies": [
+        "Python",
+        "Cheminformatics",
+        "Intro to Molecular Modeling"
+      ],
+      "year": 2024
+    }
+  ]
+}

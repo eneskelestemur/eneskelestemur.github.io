@@ -1,0 +1,115 @@
+.introCard {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+  margin-bottom: 8px;
+}
+
+/* Drop a square image at public/assets/profile.jpg and set "photo" in
+   src/data/about.json to "/assets/profile.jpg" to switch this on. */
+.photo {
+  flex: none;
+  width: 128px;
+  height: 128px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.introText {
+  flex: 1;
+  min-width: 0;
+}
+
+.affiliation {
+  color: var(--accent-about);
+  margin-bottom: 12px;
+}
+
+.introParagraph {
+  line-height: 1.7;
+  color: var(--prose-fg);
+  margin-bottom: 12px;
+}
+
+.introParagraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.section {
+  padding-top: 36px;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-about);
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.focusItem {
+  border-left: 2px solid var(--accent-about);
+  padding-left: 14px;
+}
+
+.focusTitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.entry {
+}
+
+.entryHeading {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.period {
+  flex: none;
+  white-space: nowrap;
+}
+
+.entrySub {
+  color: var(--accent-about);
+  margin-top: 2px;
+}
+
+.entryDetail {
+  margin-top: 5px;
+  line-height: 1.6;
+}
+
+.toolBadge {
+  transition: transform var(--transition-base);
+}
+
+.toolBadge:hover {
+  transform: translateY(-2px);
+}
+
+/* Stack the photo above the text once there is no room beside it */
+@media (max-width: 600px) {
+  .introCard {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .photo {
+    width: 96px;
+    height: 96px;
+  }
+}

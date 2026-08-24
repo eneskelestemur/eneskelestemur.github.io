@@ -1,0 +1,55 @@
+.card {
+  width: 100%;
+  max-width: 320px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--accent-home);
+  outline-offset: 3px;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .logo,
+.card:focus-visible .logo {
+  opacity: 0.2;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+.description {
+  text-align: center;
+  color: var(--page-fg);
+  line-height: 1.5;
+}

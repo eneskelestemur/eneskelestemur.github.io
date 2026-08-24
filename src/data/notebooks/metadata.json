@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "id": "molecular-dynamics",
+      "title": "Understanding Molecular Dynamics Simulations",
+      "slug": "molecular-dynamics",
+      "date": "2025-12-15",
+      "tags": ["chemistry", "simulation", "molecular-dynamics"],
+      "excerpt": "Deep dive into the fundamentals of molecular dynamics, from basic principles to advanced simulation techniques used in modern drug discovery.",
+      "colabLink": null
+    }
+  ]
+}

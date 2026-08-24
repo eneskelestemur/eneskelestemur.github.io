@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Title, Text, Box } from '@mantine/core';
 
-// The Narrative Sequence
+// The Narrative Sequence.
+// One half changes at a time, so every right-hand phrase has to read correctly
+// with the two left-hand phrases that sit either side of it. The cycle closes
+// back on the first entry.
 const SEQUENCE = [
-  { left: "Bridging disciplines", right: "from data to deployment." },
-  { left: "Engineering software", right: "from data to deployment." }, // Left changes
-  { left: "Engineering software", right: "with Python & PyTorch." },   // Right changes
-  { left: "Accelerating discovery", right: "with Python & PyTorch." }, // Left changes
-  { left: "Accelerating discovery", right: "for next-gen therapeutics." }, // Right changes
-  { left: "Expanding chemical space", right: "using enumerated reactions." } // Final Destination
+  { left: "Generative models",  right: "for small-molecule design." },
+  { left: "Molecular docking",  right: "for small-molecule design." },   // Left changes
+  { left: "Molecular docking",  right: "in the protein pocket." },       // Right changes
+  { left: "Molecular dynamics", right: "in the protein pocket." },
+  { left: "Molecular dynamics", right: "for hit-to-lead optimization." },
+  { left: "Analog generation",  right: "for hit-to-lead optimization." },
+  { left: "Analog generation",  right: "for therapeutic discovery." },
+  { left: "Generative models",  right: "for therapeutic discovery." }    // Loops back to the top
 ];
 
 const TYPING_SPEED = 80;
@@ -17,7 +22,6 @@ const PAUSE_DURATION = 3000; // Wait 3 seconds before moving to next sentence
 
 export function TypewriterHero() {
   const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentLeft, setCurrentLeft] = useState(SEQUENCE[0].left);
   const [currentRight, setCurrentRight] = useState(SEQUENCE[0].right);
@@ -115,14 +119,17 @@ export function TypewriterHero() {
 
 
   return (
-    <Box style={{ height: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <Title 
-        order={2} 
-        style={{ 
-            fontSize: '2rem', 
-            fontWeight: 300, 
-            letterSpacing: '1px',
-            color: '#A6A7AB' // Muted Gray
+    <Box style={{ minHeight: '80px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <Title
+        order={2}
+        style={{
+            fontSize: 'clamp(1rem, 4vw, 2rem)',
+            fontWeight: 300,
+            letterSpacing: '0.5px',
+            lineHeight: 1.4,
+            textAlign: 'center',
+            textWrap: 'balance',
+            color: 'var(--hero-subtitle)'
         }}
       >
         <span style={{ color: activeSide === 'left' ? '#22b8cf' : 'inherit', transition: 'color 0.3s' }}>
@@ -131,7 +138,7 @@ export function TypewriterHero() {
         {/* The Blinking Cursor for Left */}
         {activeSide === 'left' && <span className="cursor">|</span>}
         
-        <span style={{ margin: '0 10px', opacity: 0.3 }}>//</span>
+        <span style={{ margin: '0 8px', opacity: 0.3 }}>//</span>
 
         <span style={{ color: activeSide === 'right' ? '#20c997' : 'inherit', transition: 'color 0.3s' }}>
             {currentRight}

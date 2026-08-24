@@ -1,49 +1,35 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Container, Title, Text, Box } from '@mantine/core'
-import ParticleBackground from '../components/ParticleBackground'
-import { ThemeToggle } from '../components/ThemeToggle'
 import { MoleculeNav } from '../components/MoleculeNav'
 import { TypewriterHero } from '../components/TypewriterHero'
 import { CurrentFocus } from '../components/CurrentFocus'
+import styles from './Home.module.css'
+
+// Purely decorative and the heaviest dependency on the page, so it is
+// deferred until after the hero has rendered.
+const ParticleBackground = lazy(() => import('../components/ParticleBackground'))
 
 export function Home() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
-      
-      {/* 1. The Toggle Switch (Top Right) */}
-      <ThemeToggle />
+      <Suspense fallback={null}>
+        <ParticleBackground />
+      </Suspense>
 
-      {/* 2. The Background */}
-      <ParticleBackground />
-
-      {/* 3. The Content */}
-      <Container size="md" style={{ 
-          position: 'relative', 
-          zIndex: 1, 
-          display: 'flex', 
-          flexDirection: 'column', 
-          justifyContent: 'center', 
-          height: '100vh', // Full height to fit the large molecule
-          textAlign: 'center'
-      }}>
-        
-        <Title order={1} style={{ fontSize: '3.5rem', fontWeight: 900, letterSpacing: '-2px' }}>
+      <Container size="md" className={styles.hero}>
+        <Title order={1} size="clamp(2rem, 8vw, 3.5rem)" className={styles.name}>
           <Text component="span" inherit variant="gradient" gradient={{ from: 'cyan', to: 'teal' }}>
             Enes Kelestemur
           </Text>
         </Title>
-        
-        {/* Dynamic Typewriter Description */}
+
         <TypewriterHero />
-        
-        {/* Current Research Focus Card */}
-        <Box style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+
+        <Box className={styles.focusWrap}>
           <CurrentFocus />
         </Box>
-        
-        {/* 4. The Realistic Molecule Navigation */}
-        <MoleculeNav />
 
+        <MoleculeNav />
       </Container>
     </div>
   )

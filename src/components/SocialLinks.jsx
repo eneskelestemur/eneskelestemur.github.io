@@ -1,6 +1,7 @@
 import React from 'react';
-import { Group, Tooltip, Anchor, useMantineColorScheme } from '@mantine/core';
+import { Group, Tooltip, ActionIcon, useMantineColorScheme } from '@mantine/core';
 import { IconBrandLinkedin, IconBrandGithub, IconMail, IconBook } from '@tabler/icons-react';
+import styles from './SocialLinks.module.css';
 
 export function SocialLinks() {
   const { colorScheme } = useMantineColorScheme();
@@ -22,7 +23,7 @@ export function SocialLinks() {
     {
       icon: IconMail,
       label: 'Email',
-      href: 'mailto:enesk@email.unc.edu',
+      href: 'mailto:enesk@unc.edu',
       color: '#d54b4b'
     },
     {
@@ -39,36 +40,26 @@ export function SocialLinks() {
         const Icon = link.icon;
         return (
           <Tooltip key={link.label} label={link.label} position="bottom">
-            <Anchor
+            {/* ActionIcon (not Anchor) because it centres its glyph by
+                construction; Anchor's own styles defeat any flex centring. */}
+            <ActionIcon
+              component="a"
               href={link.href}
-              target="_blank"
+              target={link.href.startsWith('mailto:') ? undefined : '_blank'}
               rel="noopener noreferrer"
+              aria-label={link.label}
+              variant="default"
+              size={38}
+              radius="9px"
+              className={styles.link}
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                background: isDark
-                  ? 'rgba(255,255,255,0.05)'
-                  : 'rgba(0,0,0,0.05)',
-                border: `1px solid ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`,
-                color: link.color,
-                transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
-                textDecoration: 'none',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = `inset 0 0 15px ${link.color}40, 0 0 20px ${link.color}30`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = 'none';
+                '--linkColor': link.color,
+                '--linkGlow': `${link.color}40`,
+                '--linkHalo': `${link.color}30`,
               }}
             >
-              <Icon size={18} />
-            </Anchor>
+              <Icon size={21} stroke={1.75} />
+            </ActionIcon>
           </Tooltip>
         );
       })}

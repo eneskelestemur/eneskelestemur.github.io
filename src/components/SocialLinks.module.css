@@ -1,0 +1,12 @@
+.link {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--linkColor);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.link:hover {
+  background: var(--surface-subtle);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 15px var(--linkGlow), 0 0 20px var(--linkHalo);
+}

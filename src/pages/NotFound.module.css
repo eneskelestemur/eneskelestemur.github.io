@@ -1,0 +1,23 @@
+.code {
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-home-start) 0%,
+    var(--gradient-home-end) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.message {
+}
+
+.button {
+  transition: transform var(--transition-base);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}

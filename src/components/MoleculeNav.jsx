@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useMantineColorScheme, Box, Text } from '@mantine/core';
-import { IconHome, IconCode, IconFlask, IconNotebook, IconPlus } from '@tabler/icons-react';
+import { IconHome, IconCode, IconFlask, IconNotebook, IconUser } from '@tabler/icons-react';
 
 // Based on actual Mozenavir SVG coordinates, scaled and centered
 const S = 1.7; // Scale factor
@@ -57,7 +57,7 @@ const ATOMS = {
   tlb5: t(25.0, 176.1),
   tlb6: t(57.6, 208.6),
   
-  // Top-right benzene (phenyl) - "Future"
+  // Top-right benzene (phenyl) - "About"
   trb1: t(349.1, 153.8),
   trb2: t(357.7, 199.0),
   trb3: t(401.2, 214.2),
@@ -85,7 +85,7 @@ const RING_DESCRIPTIONS = {
   code: "Browse my software projects & repositories",
   research: "Learn about my scientific research & publications",
   notebook: "Read my thoughts on science & technology",
-  future: "Coming soon — stay tuned for updates"
+  about: "Background, education & what I'm working on"
 };
 
 // Define electron flow paths along the molecule backbone
@@ -198,13 +198,13 @@ const RINGS = [
     color: '#e64980'
   },
   { 
-    id: 'future', 
-    label: 'Future', 
-    path: '/future', 
+    id: 'about', 
+    label: 'About', 
+    path: '/about', 
     points: TOP_RIGHT_BENZENE,
     center: ringCenter(TOP_RIGHT_BENZENE),
-    icon: IconPlus, 
-    color: '#868e96'
+    icon: IconUser, 
+    color: '#9775fa'
   },
 ];
 
@@ -215,14 +215,13 @@ export function MoleculeNav() {
   const isDark = colorScheme === 'dark';
   const [hoveredRing, setHoveredRing] = useState(null);
   
-  const [mousePos, setMousePos] = useState({ x: 375, y: 290 });
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const [time, setTime] = useState(0);
   const [vibrationOffsets, setVibrationOffsets] = useState({});
   const [attractedElectrons, setAttractedElectrons] = useState([]);
-  const mousePosRef = useRef(mousePos);
+  const mousePosRef = useRef({ x: 375, y: 290 });
   const isHoveringRef = useRef(isHovering);
 
   useEffect(() => {
@@ -347,8 +346,6 @@ export function MoleculeNav() {
   // Thinner stroke for double bonds so they don't merge
   const doubleBondProps = { ...bondProps, strokeWidth: 4 }; 
   const atomStroke = 'none'; // No stroke for 3D spheres
-  const nitrogenBlue = '#3b82f6';
-  const oxygenRed = '#ef4444';
 
   const doubleBond = (from, to, offset = 12) => {
     const dx = to.x - from.x;
@@ -411,11 +408,12 @@ export function MoleculeNav() {
       ref={containerRef}
       style={{
         width: '100%',
+        maxWidth: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: '0.5rem',
-        padding: '20px',
+        padding: 'clamp(8px, 2vw, 20px)',
         borderRadius: '16px',
         transform: 'translateX(10px)',
         background: isDark
@@ -429,12 +427,14 @@ export function MoleculeNav() {
         backgroundClip: 'padding-box'
       }}
     >
+      {/* Fluid width with the viewBox doing the scaling: the molecule keeps its
+          internal coordinates, so hover targets and electron paths behave the
+          same at any size. */}
       <svg
         ref={svgRef}
-        width="750"
-        height="525"
         viewBox="0 0 750 525"
-        style={{ overflow: 'visible' }}
+        preserveAspectRatio="xMidYMid meet"
+        style={{ width: '100%', height: 'auto', maxWidth: '750px', overflow: 'visible' }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -555,7 +555,7 @@ export function MoleculeNav() {
 
         {/* ATOMS LAYER (3D Spheres) */}
         <g className="atoms-layer">
-          {allAtoms.map((atom, i) => {
+          {allAtoms.map((atom) => {
              const breatherIdx = BREATHING_ATOMS.findIndex(b => b.atom === ATOMS[atom.key]);
              let r = atom.radius;
              if (breatherIdx !== -1) {

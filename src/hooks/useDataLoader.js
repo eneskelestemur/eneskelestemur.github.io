@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 
+// Vite resolves this glob at build time, so every JSON file under src/data is
+// bundled and code-split into its own chunk. A bare dynamic import with a
+// runtime-built path would not be analyzable, and the data would be missing
+// from the production build entirely.
+const dataModules = import.meta.glob('../data/**/*.json');
+
 /**
  * Generic hook to load JSON data from the data folder
  * @param {string} dataPath - Path to the JSON file relative to src/data
@@ -11,24 +17,34 @@ export function useDataLoader(dataPath) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let cancelled = false;
+
     const loadData = async () => {
+      setLoading(true);
       try {
-        setLoading(true);
-        // Dynamically import the JSON file with vite-ignore to suppress warning
-        // This allows runtime flexibility while being explicit about the data folder
-        const importedData = await import(/* @vite-ignore */`../data/${dataPath}`);
+        const load = dataModules[`../data/${dataPath}`];
+        if (!load) {
+          throw new Error(`No data file at src/data/${dataPath}`);
+        }
+        const importedData = await load();
+        if (cancelled) return;
         setData(importedData.default || importedData);
         setError(null);
       } catch (err) {
+        if (cancelled) return;
         console.error(`Failed to load ${dataPath}:`, err);
         setError(err.message);
         setData(null);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     loadData();
+
+    return () => {
+      cancelled = true;
+    };
   }, [dataPath]);
 
   return { data, loading, error };

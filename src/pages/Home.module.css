@@ -1,0 +1,32 @@
+/* The hero used a hard 100vh with fixed type sizes, so on short or narrow
+   viewports the name and the molecule were clipped instead of scaling.
+   min-height + fluid type lets the page grow and scroll instead. */
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(72px, 12vh, 96px) 0 clamp(32px, 6vh, 48px);
+  text-align: center;
+  gap: clamp(4px, 1.5vh, 12px);
+}
+
+.name {
+  /* Font size comes from the Title `size` prop: Mantine writes --title-fz
+     inline, which no class can override. */
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.focusWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}

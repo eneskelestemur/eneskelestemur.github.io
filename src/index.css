@@ -1,40 +1,208 @@
+/* ============================================================
+   Design tokens
+   Dark is the default scheme, so :root holds the dark values and
+   [data-mantine-color-scheme="light"] overrides them. Mantine sets
+   that attribute on <html>, which is why the theme switch is pure
+   CSS with no JavaScript involved.
+   ============================================================ */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --gradient-start: #ffffff;
-  --gradient-end: #a0aec0;
-  --gradient-green-start: #00d966;
-  --gradient-green-end: #12b559;
-  --gradient-notebook-start: #e64980;
-  --gradient-notebook-end: #c41e59;
-  --gradient-research-start: #fab005;
-  --gradient-research-end: #ff9500;
+
+  /* --- Per-section accents (mirrored by the molecule nav rings) --- */
+  --accent-home: #228be6;
+  --accent-code: #40c057;
+  --accent-research: #fab005;
+  --accent-notebook: #e64980;
+  --accent-about: #9775fa;
+
   --gradient-home-start: #228be6;
   --gradient-home-end: #1864e0;
+  --gradient-notebook-start: #e64980;
+  --gradient-notebook-end: #c41e59;
+  --gradient-about-start: #9775fa;
+  --gradient-about-end: #7048e8;
+  --gradient-research-start: #fab005;
+  --gradient-research-end: #ff9500;
+  --gradient-green-start: #00d966;
+  --gradient-green-end: #12b559;
+  --gradient-cyan-start: #00d4ff;
+  --gradient-cyan-end: #0099cc;
+  --gradient-purple-start: #9945ff;
+  --gradient-purple-end: #7c3aed;
+
+  /* Neutral gradient used for card titles */
+  --gradient-start: #ffffff;
+  --gradient-end: #a0aec0;
+
+  /* --- Surfaces and lines --- */
+  --page-bg: #1a1b1e;
+  --page-fg: #ffffff;
+  --surface-subtle: rgba(255, 255, 255, 0.03);
+  --surface-raised: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --code-bg: rgba(0, 0, 0, 0.3);
+  --inline-code-bg: rgba(255, 255, 255, 0.08);
+  --prose-fg: rgba(255, 255, 255, 0.85);
+  --hero-subtitle: #a6a7ab;
+  /* The card gradient reaches ~0.065 white alpha where the abstract sits, so
+     the fade blends to that flattened value rather than the gradient's start. */
+  --card-fade: #292a2c;
+
+  /* --- Card surface (see .glassCard below) --- */
+  --card-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --card-glow-alpha: 0.15;
+
+  /* RGB triplets so accents can be used inside rgba() glows */
+  --accent-home-rgb: 34, 139, 230;
+  --accent-code-rgb: 64, 192, 87;
+  --accent-research-rgb: 250, 176, 5;
+  --accent-notebook-rgb: 230, 73, 128;
+  --accent-about-rgb: 151, 117, 250;
+
+  /* --- Motion --- */
+  --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-base: 0.3s var(--ease-out-expo);
+
+  /* Symmetric ease-in-out. --ease-out-expo lunges forward at the start, which
+     reads as a jolt on anything that moves page layout; this eases in and out
+     so an expanding card glides instead of snapping. */
+  --ease-glide: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Expand-on-hover duration. PublicationCard measures the abstract's real
+     height and animates to exactly that, so this duration is the actual
+     visible time in both directions — no dead time to compensate for. */
+  --glide-duration: 1.3s;
+  /* Small hover-in delay so sweeping the cursor across a grid does not set
+     every card animating in turn. Collapsing is never delayed. */
+  --glide-delay: 0.12s;
 }
 
-/* This forces the browser window to be dark immediately */
-html, body {
+[data-mantine-color-scheme='light'] {
+  --gradient-green-start: #2f9e44;
+  --gradient-green-end: #1f7a26;
+  --gradient-cyan-start: #0077be;
+  --gradient-cyan-end: #004daa;
+  --gradient-purple-start: #5e3fbf;
+  --gradient-purple-end: #3c2da0;
+  --accent-about: #6741d9;
+  --gradient-about-start: #7048e8;
+  --gradient-about-end: #5f3dc4;
+
+  --gradient-start: #1a202c;
+  --gradient-end: #4a5568;
+
+  --page-bg: #f8f9fa;
+  --page-fg: #000000;
+  --surface-subtle: rgba(0, 0, 0, 0.03);
+  --surface-raised: rgba(0, 0, 0, 0.06);
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --code-bg: rgba(0, 0, 0, 0.05);
+  --inline-code-bg: rgba(0, 0, 0, 0.06);
+  --prose-fg: rgba(0, 0, 0, 0.85);
+  --hero-subtitle: #5c5f66;
+  --card-fade: #eceded;
+
+  --card-bg: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-inset: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --card-glow-alpha: 0.1;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  background-color: #1A1B1E; /* The dark grey we chose */
-  color: white;
-  overflow-x: hidden; /* Prevents scrollbars if particles go off screen */
+  min-height: 100%;
+  background-color: var(--page-bg);
+  color: var(--page-fg);
 }
 
-/* Smooth transition for the theme switch */
+/* Clip stray horizontal overflow (particles, wide molecule) without ever
+   creating a nested scroll context that would block vertical scrolling. */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* In Light mode, override the background */
-[data-mantine-color-scheme="light"] body {
-  background-color: #f8f9fa;
-  color: #000;
+/* ============================================================
+   Shared surfaces
+
+   .glassCard is the one definition of the frosted card used by the
+   notebook, project, publication and current-focus cards. A card
+   picks its hover glow by setting --card-glow-rgb locally, e.g.
+   style={{ '--card-glow-rgb': 'var(--accent-research-rgb)' }}.
+   ============================================================ */
+
+.glassCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.65s var(--ease-glide),
+    box-shadow 0.65s var(--ease-glide);
 }
 
-/* Global Animations */
+/* Opt-in lift; static cards use .glassCard alone */
+.glassCardInteractive {
+  cursor: pointer;
+}
+
+.glassCardInteractive:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 40px
+      rgba(var(--card-glow-rgb, 0, 0, 0), var(--card-glow-alpha)),
+    var(--card-inset);
+}
+
+/* ============================================================
+   Entry animations
+
+   These are global utility classes, not CSS-module rules, on purpose. A module
+   that writes `animation: slideInUp …` gets the NAME scoped to something like
+   _slideInUp_1oq28_1, which matches no keyframe, so the animation silently does
+   nothing. Keyframes live here in global CSS, so the classes must too.
+
+   Stagger by setting --enter-delay inline:
+     style={{ '--enter-delay': '0.3s' }}
+   ============================================================ */
+
+.enterUp {
+  animation: slideInUp 0.6s var(--ease-out-expo) var(--enter-delay, 0s) backwards;
+}
+
+.enterDown {
+  animation: slideInDown 0.6s var(--ease-out-expo) var(--enter-delay, 0s) backwards;
+}
+
+.enterScale {
+  animation: fadeInScale 0.4s var(--ease-out-expo) var(--enter-delay, 0s) backwards;
+}
+
+/* ============================================================
+   Shared animations
+   ============================================================ */
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -90,3 +258,34 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Respect users who ask for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Responsive guards
+   ============================================================ */
+
+/* Page gutters shrink on small screens instead of squeezing content away */
+@media (max-width: 480px) {
+  :root {
+    --page-gutter: 12px;
+  }
+}

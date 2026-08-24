@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eneskelestemur.github.io/sitemap.xml

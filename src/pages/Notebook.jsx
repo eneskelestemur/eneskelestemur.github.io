@@ -3,12 +3,10 @@ import { Container, Title, Text, Box, Group, Stack, Loader, Center, Badge, Toolt
 import { NotebookCard } from '../components/NotebookCard';
 import { PageHeader } from '../components/PageHeader';
 import { useDataLoader } from '../hooks/useDataLoader';
-import { useThemeGradients } from '../hooks/useThemeGradients';
 import { IconFilter } from '@tabler/icons-react';
 
 export function Notebook() {
   const { data, loading, error } = useDataLoader('notebooks/metadata.json');
-  useThemeGradients();
   const [selectedTags, setSelectedTags] = useState([]);
 
   // Extract all unique tags
@@ -70,8 +68,8 @@ export function Notebook() {
             p="16px"
             style={{
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 100%)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
               animation: 'slideInDown 0.6s cubic-bezier(0.23, 1, 0.320, 1)'
             }}
           >
@@ -82,6 +80,7 @@ export function Notebook() {
             <Group gap="6px" wrap="wrap">
               {allTags.map((tag, idx) => {
                 // Cycle through different tones of red/pink
+                // Tones of the notebook accent, cycled so adjacent tags differ
                 const colorTones = ['#e64980', '#d63860', '#ff6b9d', '#ec6b8a'];
                 const color = colorTones[idx % colorTones.length];
                 
@@ -152,7 +151,7 @@ export function Notebook() {
           </Stack>
 
           {/* Footer stats */}
-          <Box mt="40px" pt="20px" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <Box mt="40px" pt="20px" style={{ borderTop: '1px solid var(--border-subtle)' }}>
             <Text size="xs" c="dimmed">
               Showing {filteredPosts.length} of {data?.posts?.length || 0} posts
             </Text>

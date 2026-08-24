@@ -1,0 +1,192 @@
+.title {
+  line-height: 1.2;
+  margin-bottom: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-notebook-start),
+    var(--gradient-notebook-end)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.backButton {
+  transition: transform var(--transition-base);
+}
+
+.backButton:hover {
+  transform: translateX(-3px);
+}
+
+.colabLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  color: var(--accent-notebook);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base);
+}
+
+.colabLink:hover {
+  border-bottom-color: var(--accent-notebook);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-subtle) 50%,
+    transparent 100%
+  );
+  margin-bottom: 32px;
+}
+
+/* ============================================================
+   Prose — styles the HTML react-markdown emits directly, rather
+   than overriding every node with a React component.
+   ============================================================ */
+
+.prose {
+  color: var(--prose-fg);
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--page-fg);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.prose h1 {
+  font-size: 28px;
+  margin: 32px 0 16px;
+}
+
+.prose h2 {
+  font-size: 22px;
+  margin: 28px 0 14px;
+}
+
+.prose h3 {
+  font-size: 18px;
+  margin: 24px 0 12px;
+}
+
+.prose h4 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+}
+
+.prose p {
+  margin: 0 0 16px;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+.prose li {
+  margin-bottom: 8px;
+}
+
+.prose a {
+  color: var(--accent-notebook);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(230, 73, 128, 0.5);
+  transition: border-color var(--transition-base);
+}
+
+.prose a:hover {
+  border-bottom-color: var(--accent-notebook);
+}
+
+.prose blockquote {
+  margin: 0 0 16px;
+  padding: 8px 16px;
+  border-left: 3px solid var(--accent-notebook);
+  background: rgba(230, 73, 128, 0.08);
+  border-radius: 4px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+/* Inline code only — `pre code` is reset below */
+.prose :not(pre) > code {
+  padding: 2px 6px;
+  background: var(--inline-code-bg);
+  border-radius: 4px;
+  color: var(--accent-notebook);
+}
+
+/* Code blocks stay dark in both themes so the highlight.js palette
+   (github-dark) reads correctly and syntax colours never wash out. */
+.prose pre {
+  margin: 0 0 16px;
+  padding: 16px;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: #c9d1d9;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.prose hr {
+  height: 1px;
+  border: none;
+  background: var(--border-subtle);
+  margin: 32px 0;
+}
+
+/* Tables need remark-gfm to be emitted at all */
+.prose .tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--border-subtle);
+  padding: 12px;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--surface-raised);
+  font-weight: 600;
+}

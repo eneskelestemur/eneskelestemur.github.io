@@ -62,16 +62,28 @@
     },
     {
       "id": "pub-6",
-      "title": "HEALER: Hit Expansion to Advanced Leads Using Enumerated Reactions",
-      "authors": ["Enes Kelestemur", "Eugene Muratov", "Alexander Tropsha"],
+      "title": "HEALER (Hit Expansion to Advanced Leads using Enumerated Reactions): A new Method and Computational Tool for Hit to Lead Optimization",
+      "authors": ["Kelestemur, Enes", "Muratov, Eugene N", "Zakharov, Alexey V", "Tropsha, Alexander"],
       "journal": null,
       "conference": "ACS Spring 2026",
       "year": 2026,
-      "doi": null,
-      "link": null,
-      "abstract": "Rapid generation of synthetically feasible analogs of hit compounds is central to hit-to-lead campaigns in medicinal chemistry. Here we present HEALER, an open-source reaction-based enumerator that constructs analogs by (i) retrosynthetic fragmentation of a query hit molecule; (ii) fragment-to-building-block matching using a weighted Tversky similarity metric; and (iii) forward recombination via curated SMARTS reaction templates. HEALER outputs analog proposals along with synthetic routes (including reactants and reaction identifiers) and computed “drug likeness” properties typically assessed in medicinal chemistry projects for compound triage. Across diverse benchmark sets (Enamine diverse compounds, ChEMBL lead-like bioactives, and a set of “unsynthesizable” molecules), HEALER showed high analog generation success rates and maintained robust performance on out-of-distribution chemotypes, while imposing minimal synthetic burden. Analogs generated with HEALER typically preserved or improved drug-likeness of the hits, often matching or exceeding the performance of synthesis-aware machine learning generators. As a CPU-friendly web application with Python API, HEALER offers a practical bridge from in silico design to make-ready hit optimization chemistry.",
+      "doi": "https://doi.org/10.26434/chemrxiv.15003011/v1",
+      "link": "https://doi.org/10.26434/chemrxiv.15003011/v1",
+      "abstract": "Rapid generation of synthetically feasible analogs of hit compounds is central to hit-to-lead campaigns in medicinal chemistry. Here we present HEALER, an open-source reaction-based enumerator that constructs analogs of a molecule of interest (such as hit compounds resulting from high throughput screening campaigns) by (i) retrosynthetic fragmentation of a query hit molecule; (ii) fragment-to-building-block matching using a weighted Tversky similarity metric; and (iii) forward recombination via curated SMARTS reaction templates. HEALER outputs analog proposals along with synthetic routes (including reactants and reaction identifiers) and computed “drug likeness” properties typically assessed in medicinal chemistry projects for compound triage. Across diverse benchmark sets (Enamine diverse compounds, ChEMBL lead-like bioactives, and a set of “unsynthesizable” molecules), HEALER showed high analog generation success rates and maintained robust performance on out-of-distribution chemotypes, while imposing minimal synthetic burden. Analogs generated with HEALER typically preserved or improved drug-likeness of the hits, often matching or exceeding the performance of synthesis-aware machine learning generators. To facilitate user experience, we implemented HEALER as a CPU-friendly web application, offering a practical bridge from in silico design to make-ready hit optimization chemistry. Code is available at https://github.com/eneskelestemur/healer.",
       "tags": ["Drug Discovery", "Reaction-based design", "Analog generation", "Synthetic accessibility", "Open-source web tool"],
       "type": ["preprint", "conference"]
+    },
+    {
+      "id": "pub-7",
+      "title": "A Modular Agentic Framework for Synthetically Constrained Multi-Objective Hit-to-Lead Optimization",
+      "authors": ["Kelvin P Idanwekhai", "Enes Kelestemur", "Benjamin Strickland", "Matthew Hart", "Steini Davidsson", "Angelos Angelopoulos", "Ron Alterovitz", "Marcello DeLuca", "Alexander Tropsha"],
+      "journal": null,
+      "year": 2026,
+      "doi": "https://doi.org/10.48550/arXiv.2608.11483",
+      "link": "https://doi.org/10.48550/arXiv.2608.11483",
+      "abstract": "Hit-to-lead optimization requires iterative design of hit analogs across competing potency, selectivity, physicochemical, pharmacokinetic, safety, and synthetic constraints. We present SABLE (Synthetically-accessible Agentic Bayesian Ligand Exploration), an open-source framework that employs natural-language orchestration to guide chemical structure optimization. SABLE uses an LLM to interpret user-defined goals and route tasks, while specialized tools perform reaction-templated analog enumeration, physicochemical and ADMET property prediction, structure-based affinity scoring, and Bayesian optimization. The resulting workflow is a computational twin of the analytical and prioritization stages of the design-make-test-analyze cycle, providing provenance of each numerical output. Across single, and multi-objective optimization studies, SABLE enriches candidate sets for user-defined computational objectives while evaluating only a subset of the enumerated search space. Its modular architecture allows tools and characterization backends to be replaced by editing a simple config file, without modifying operational logic. SABLE provides an extensible decision-support framework for prioritizing synthetically constrained analogs in early-stage drug discovery.",
+      "tags": ["Molecular Design", "Hit-to-Lead Optimization", "Multi-Objective Optimization", "Drug Discovery", "Open-Source Framework"],
+      "type": "preprint"
     }
   ]
 }

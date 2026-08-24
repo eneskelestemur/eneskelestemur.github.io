@@ -3,11 +3,9 @@ import { Container, Title, Text, Box, SimpleGrid, Loader, Center } from '@mantin
 import { ProjectCard } from '../components/ProjectCard';
 import { PageHeader } from '../components/PageHeader';
 import { useDataLoader } from '../hooks/useDataLoader';
-import { useThemeGradients } from '../hooks/useThemeGradients';
 
 export function Code() {
-  const { data, loading, error } = useDataLoader('projects/projects.json');
-  useThemeGradients();
+  const { data, loading, error } = useDataLoader('projects.json');
 
   // Sort projects by year (newest first)
   const sortedProjects = useMemo(() => {
@@ -58,7 +56,7 @@ export function Code() {
           </SimpleGrid>
 
           {/* Footer stats */}
-          <Box pt="20px" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <Box pt="20px" style={{ borderTop: '1px solid var(--border-subtle)' }}>
             <Text size="xs" c="dimmed">
               Total projects: {sortedProjects.length}
             </Text>

@@ -3,11 +3,9 @@ import { Container, Title, Text, Box, Stack, Loader, Center } from '@mantine/cor
 import { PublicationCard } from '../components/PublicationCard';
 import { PageHeader } from '../components/PageHeader';
 import { useDataLoader } from '../hooks/useDataLoader';
-import { useThemeGradients } from '../hooks/useThemeGradients';
 
 export function Research() {
-  const { data, loading, error } = useDataLoader('publications/publications.json');
-  useThemeGradients();
+  const { data, loading, error } = useDataLoader('publications.json');
 
   // Group publications by year, sorted descending (recent first)
   const sortedYearsAndPublications = useMemo(() => {
@@ -59,7 +57,7 @@ export function Research() {
               <Box
                 mb="24px"
                 style={{
-                  borderBottom: '2px solid rgba(255,255,255,0.1)',
+                  borderBottom: '2px solid var(--border-subtle)',
                   paddingBottom: '12px'
                 }}
               >
@@ -67,7 +65,7 @@ export function Research() {
                   size="xl"
                   fw={700}
                   style={{
-                    background: 'var(--gradient-purple-start)',
+                    background: 'linear-gradient(135deg, var(--gradient-research-start) 0%, var(--gradient-research-end) 100%)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -98,7 +96,7 @@ export function Research() {
 
       {/* Footer stats */}
       {!loading && data?.publications && (
-        <Box mt="40px" pt="20px" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+        <Box mt="40px" pt="20px" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <Text size="xs" c="dimmed">
             Total publications: {data.publications.length}
           </Text>

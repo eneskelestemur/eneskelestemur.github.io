@@ -1,14 +1,15 @@
 .cardContainer {
-  position: relative;
-  overflow: hidden;
-  animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
 }
 
 .badge {
-  animation: fadeInScale 0.4s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .title {
+  line-height: 1.4;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   background-clip: text;
   -webkit-background-clip: text;
@@ -16,12 +17,44 @@
   transition: all 0.4s ease;
 }
 
+/* The description height is RESERVED, not animated.
+
+   In a 3-column grid the row stretches every card to the tallest one, so
+   growing a card on hover resized its two row-mates and pushed every row
+   below it — three cards moving for one hover, at any speed. Fixing the
+   height means hover only lifts and glows the card; nothing reflows.
+
+   The Research page keeps its expand-on-hover: it is a single column, so
+   expanding there pushes content down predictably instead of sideways. */
 .descriptionContainer {
   position: relative;
+  flex: 1;
+  min-height: 84px; /* four lines at 14px/1.5 */
+  overflow: hidden;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  line-height: 1.5;
+  opacity: 0.8;
+  transition: opacity 0.8s var(--ease-glide);
+}
+
+.cardContainer:hover .description {
+  opacity: 1;
 }
 
 .techBadge {
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  opacity: 0.8;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.cardContainer:hover .techBadge {
+  opacity: 1;
 }
 
 .techBadge:hover {
@@ -29,16 +62,22 @@
 }
 
 .statsGroup {
-  transition: all 0.4s ease;
+  opacity: 0.7;
+  transition: opacity 0.8s var(--ease-glide);
+}
+
+.cardContainer:hover .statsGroup {
+  opacity: 1;
 }
 
 .link {
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  color: var(--accent-code);
+  text-decoration: none;
+  position: relative;
+  transition: all var(--transition-base);
 }
 
 .link::after {
@@ -49,10 +88,34 @@
   width: 0;
   height: 1px;
   background: currentColor;
-  transition: width 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  transition: width var(--transition-base);
 }
 
 .link:hover::after {
   width: 100%;
 }
 
+.projectImage {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0.7;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.65s var(--ease-glide), transform 0.65s var(--ease-glide);
+}
+
+.cardContainer:hover .projectImage {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

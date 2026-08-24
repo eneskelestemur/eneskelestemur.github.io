@@ -1,0 +1,58 @@
+{
+  "role": "PhD Candidate, Bioinformatics & Computational Biology",
+  "affiliation": "Molecular Modeling Lab · UNC–Chapel Hill",
+  "photo": "/assets/profile.jpg",
+  "intro": [
+    "I build computational methods for small-molecule design. My work sits between cheminformatics and machine learning: reaction-based enumeration for generating synthetically feasible analogs, structure-based modeling to evaluate new chemical series, and generative models for exploring chemical space.",
+    "Before moving into computational chemistry, I worked across computational biology — transcriptomics in cancer, and microbiome analysis in critical care. That background still shapes how I approach chemical data."
+  ],
+  "focus": [
+    {
+      "title": "Reaction-based enumeration",
+      "detail": "HEALER — retrosynthetic fragmentation and forward recombination to generate analogs a chemist can actually make."
+    },
+    {
+      "title": "Structure-based modeling",
+      "detail": "Molecular docking, molecular dynamics, and protein–ligand modeling to design and evaluate chemical series."
+    },
+    {
+      "title": "Generative & predictive ML",
+      "detail": "Diffusion models for structure-conditioned molecule generation, and ADME property prediction including cytochrome P450 activity."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Ph.D. Bioinformatics & Computational Biology",
+      "institution": "University of North Carolina – Chapel Hill",
+      "period": "2022 – present",
+      "detail": "Molecular Modeling Lab (PI: Alexander Tropsha). Certificate in Molecular and Cellular Biophysics."
+    },
+    {
+      "degree": "B.S. Molecular and Cellular Biology",
+      "institution": "University of Illinois at Urbana–Champaign",
+      "period": "2019 – 2022",
+      "detail": "Minors in Statistics, Computer Science, and Chemistry."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Computational Biology Research",
+      "institution": "UT MD Anderson Cancer Center",
+      "period": "2020 – 2021",
+      "detail": "RNA-seq analysis to identify transcriptomic predictors of clinical outcome in synovial sarcoma."
+    },
+    {
+      "role": "Microbiome Data Analysis",
+      "institution": "University of Chicago",
+      "period": "2020 – 2022",
+      "detail": "Gut microbiota signatures in sepsis patients, using QIIME2 and R."
+    },
+    {
+      "role": "Laboratory Assistant",
+      "institution": "Illinois Sustainable Technology Center, UIUC",
+      "period": "2021 – 2022",
+      "detail": "Sample preparation lab."
+    }
+  ],
+  "toolkit": ["Python", "RDKit", "PyTorch", "Scikit-learn", "R", "OpenMM"]
+}
