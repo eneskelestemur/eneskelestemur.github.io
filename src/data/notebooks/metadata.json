@@ -1,12 +1,17 @@
 {
   "posts": [
     {
-      "id": "molecular-dynamics",
-      "title": "Understanding Molecular Dynamics Simulations",
-      "slug": "molecular-dynamics",
-      "date": "2025-12-15",
-      "tags": ["chemistry", "simulation", "molecular-dynamics"],
-      "excerpt": "Deep dive into the fundamentals of molecular dynamics, from basic principles to advanced simulation techniques used in modern drug discovery.",
+      "id": "healer-introduction",
+      "slug": "healer-introduction",
+      "title": "Healing a Hit on a Budget: HEALER, a Model-Free Approach to Hit Expansion",
+      "date": "2026-08-25",
+      "tags": [
+        "chemistry",
+        "drug-discovery",
+        "combinatorial-chemistry",
+        "machine-learning"
+      ],
+      "excerpt": "HEALER searches the same reaction-template chemical space as two transformer models, with no model in it at all. On the benchmark it performs on par.",
       "colabLink": null
     }
   ]
