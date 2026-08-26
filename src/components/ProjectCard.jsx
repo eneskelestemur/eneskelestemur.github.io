@@ -37,7 +37,7 @@ export function ProjectCard({ project }) {
     >
       {/* Header: Status Badge and Year */}
       <Group justify="space-between" mb="12px">
-        <Badge size="sm" color={STATUS_COLORS[project.status]} className={styles.badge}>
+        <Badge size="sm" color={STATUS_COLORS[project.status]}>
           {STATUS_LABELS[project.status]}
         </Badge>
         <Text size="xs" c="dimmed" fw={500}>{project.year}</Text>

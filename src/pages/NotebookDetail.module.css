@@ -6,8 +6,8 @@
     var(--gradient-notebook-start),
     var(--gradient-notebook-end)
   );
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -189,4 +189,20 @@
 .prose th {
   background: var(--surface-raised);
   font-weight: 600;
+}
+
+/* Math — rehype-katex output. Attribute selectors, not `:global(.katex)`:
+   CSS Modules scopes class names, and these classes come from KaTeX. */
+
+.prose [class~='katex-display'] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+  margin: 24px 0;
+}
+
+/* The body line-height of 1.8 stretches inline fractions. */
+.prose [class~='katex'] {
+  line-height: 1.4;
+  font-size: 1.05em;
 }

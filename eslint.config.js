@@ -5,7 +5,10 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // codespace/ holds scratch work — cloned repos, virtualenvs, datasets — and is
+  // gitignored. Traversing it makes a local lint take minutes; see the matching
+  // watcher exclusion in vite.config.js.
+  globalIgnores(['dist', 'codespace']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [

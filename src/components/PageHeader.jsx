@@ -46,7 +46,7 @@ export function PageHeader({
         >
           {title}
         </Title>
-        <Text c="dimmed" size="lg" className={`enterUp ${styles.subtitle}`} style={{ '--enter-delay': '0.1s' }}>
+        <Text c="dimmed" size="lg" className="enterUp" style={{ '--enter-delay': '0.1s' }}>
           {subtitle}
         </Text>
       </Box>

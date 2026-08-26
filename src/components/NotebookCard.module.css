@@ -10,8 +10,8 @@
 .title {
   line-height: 1.4;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.4s ease;
 }

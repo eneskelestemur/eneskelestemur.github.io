@@ -6,8 +6,8 @@
     var(--gradient-home-start) 0%,
     var(--gradient-home-end) 100%
   );
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

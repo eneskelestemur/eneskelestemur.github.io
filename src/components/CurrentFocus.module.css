@@ -3,6 +3,7 @@
   max-width: 320px;
   padding: 16px 24px;
   border-radius: 16px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 

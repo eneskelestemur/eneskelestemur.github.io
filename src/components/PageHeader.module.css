@@ -25,10 +25,7 @@
   font-weight: 900;
   margin-bottom: 16px;
   background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
 }

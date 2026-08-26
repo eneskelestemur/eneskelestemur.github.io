@@ -63,7 +63,7 @@ export function PublicationCard({ publication }) {
       <Group justify="space-between" mb="12px" align="center">
         <Group gap="6px">
           {publicationTypes.map((type) => (
-            <Badge key={type} size="sm" color={TYPE_COLORS[type]} className={styles.badge}>
+            <Badge key={type} size="sm" color={TYPE_COLORS[type]}>
               {TYPE_LABELS[type]}
             </Badge>
           ))}

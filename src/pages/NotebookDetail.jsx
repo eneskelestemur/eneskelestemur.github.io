@@ -19,8 +19,11 @@ import { resolveArtifact } from '../hooks/useNotebookArtifacts';
 import { IconArrowLeft, IconBrandGoogle } from '@tabler/icons-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeKatex from 'rehype-katex';
 import 'highlight.js/styles/github-dark.css';
+import 'katex/dist/katex.min.css';
 import { formatPostDate } from '../utils/date';
 import styles from './NotebookDetail.module.css';
 
@@ -143,8 +146,8 @@ export function NotebookDetail() {
 
       <Box className={`enterUp ${styles.prose}`} style={{ '--enter-delay': '0.1s' }}>
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight]}
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeHighlight, rehypeKatex]}
           components={markdownComponents}
         >
           {content}
