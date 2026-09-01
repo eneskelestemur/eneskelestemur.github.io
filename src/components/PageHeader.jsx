@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Title, Text, Button } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { IconHome } from '@tabler/icons-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import styles from './PageHeader.module.css';
 
 /**
@@ -18,6 +19,7 @@ export function PageHeader({
   gradientEndVar = '--gradient-end',
 }) {
   const navigate = useNavigate();
+  usePageTitle(title);
 
   return (
     <>

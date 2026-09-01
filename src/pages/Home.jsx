@@ -3,6 +3,7 @@ import { Container, Title, Text, Box } from '@mantine/core'
 import { MoleculeNav } from '../components/MoleculeNav'
 import { TypewriterHero } from '../components/TypewriterHero'
 import { CurrentFocus } from '../components/CurrentFocus'
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './Home.module.css'
 
 // Purely decorative and the heaviest dependency on the page, so it is
@@ -10,6 +11,8 @@ import styles from './Home.module.css'
 const ParticleBackground = lazy(() => import('../components/ParticleBackground'))
 
 export function Home() {
+  usePageTitle();
+
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
       <Suspense fallback={null}>

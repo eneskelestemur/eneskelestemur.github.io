@@ -2,10 +2,12 @@ import React from 'react';
 import { Container, Title, Text, Button, Stack } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { IconHome } from '@tabler/icons-react';
+import { usePageTitle } from '../hooks/usePageTitle';
 import styles from './NotFound.module.css';
 
 export function NotFound() {
   const navigate = useNavigate();
+  usePageTitle('Page Not Found');
 
   return (
     <Container

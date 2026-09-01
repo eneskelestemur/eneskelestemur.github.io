@@ -25,6 +25,7 @@ import rehypeKatex from 'rehype-katex';
 import 'highlight.js/styles/github-dark.css';
 import 'katex/dist/katex.min.css';
 import { formatPostDate } from '../utils/date';
+import { usePageTitle } from '../hooks/usePageTitle';
 import styles from './NotebookDetail.module.css';
 
 const markdownComponents = {
@@ -62,6 +63,7 @@ export function NotebookDetail() {
     () => metadata?.posts?.find((p) => p.slug === slug),
     [metadata, slug]
   );
+  usePageTitle(post?.title);
 
   const loading = metadataLoading || contentLoading;
   const error = metadataError || contentError;
