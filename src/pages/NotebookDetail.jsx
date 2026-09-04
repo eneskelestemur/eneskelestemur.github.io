@@ -26,6 +26,7 @@ import 'highlight.js/styles/github-dark.css';
 import 'katex/dist/katex.min.css';
 import { formatPostDate } from '../utils/date';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { GiscusComments } from '../components/GiscusComments';
 import styles from './NotebookDetail.module.css';
 
 const markdownComponents = {
@@ -154,6 +155,13 @@ export function NotebookDetail() {
         >
           {content}
         </ReactMarkdown>
+      </Box>
+
+      <Box mt="48px" pt="32px" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+        {/* Keyed by slug: see GiscusComments for why this is required, not
+            just tidy — without it, navigating between posts would leave the
+            previous post's thread on screen. */}
+        <GiscusComments key={slug} />
       </Box>
 
       <Box mt="48px" pt="32px" style={{ borderTop: '1px solid var(--border-subtle)' }}>

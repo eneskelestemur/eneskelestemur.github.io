@@ -1,0 +1,5 @@
+.wrapper {
+  /* Lazy-loaded, so the iframe isn't there yet on first paint — this holds
+     its layout space to avoid a jump when it pops in. */
+  min-height: 200px;
+}
